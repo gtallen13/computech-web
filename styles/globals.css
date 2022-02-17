@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+h2 {
+  font-size: 30px;
+}
+/* Pagina Inicio: Slider */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #c5c6d0;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  background-color: #c5c6d0;
+}
+/* ----------- */
