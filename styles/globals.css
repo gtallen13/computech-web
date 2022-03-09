@@ -26,3 +26,193 @@ h2 {
   background-color: #c5c6d0;
 }
 /* ----------- */
+/* Menu */
+nav {
+  background-color: #31135c;
+  width: 100%;
+}
+nav::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav .logo h4 {
+  float: left;
+  font-size: 30px;
+  color: whitesmoke;
+  margin: 15px 0 0 25px;
+  font-family: "Zen Old Mincho", serif;
+}
+
+nav ul {
+  float: right;
+  list-style: none;
+  margin: 0 40px 0 0;
+  position: relative;
+}
+nav ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  line-height: 70px;
+  font-size: 25px;
+  padding: 8px 15px;
+  opacity: 0.8;
+}
+nav ul li a:hover {
+  opacity: 1;
+}
+nav ul ul {
+  z-index: 1000;
+  position: absolute;
+  top: 90px;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.3s;
+}
+nav ul li:hover > ul {
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+nav ul ul li {
+  position: relative;
+  background-color: #0e0e0e;
+  margin: 0px;
+  width: 120px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid whitesmoke;
+}
+nav ul ul li a {
+  font-size: 18px;
+  line-height: 50px;
+}
+/* Menu Responsive */
+
+.show,
+.icon,
+nav input {
+  display: none;
+}
+
+@media all and (max-width: 968px) {
+  /* body {
+    overflow-x: hidden;
+  } */
+  nav {
+    padding: 15px;
+  }
+  nav ul {
+    margin-right: 0px;
+    float: left;
+    width: 100%;
+  }
+  nav .logo {
+    padding-left: 30px;
+    width: 100%;
+  }
+  nav .logo h4 {
+    font-size: 30px;
+    margin: 0;
+  }
+  nav ul li,
+  nav ul ul li {
+    display: block;
+    width: 100%;
+  }
+  nav ul ul {
+    top: 70px;
+    position: static;
+    border-top: none;
+    float: none;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  nav ul ul a {
+    padding-left: 40px;
+  }
+  .show {
+    display: block;
+    color: white;
+    font-size: 25px;
+    padding: 0 20px;
+    line-height: 70px;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .show:hover {
+    opacity: 1;
+  }
+  .icon {
+    display: block;
+    color: whitesmoke;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  .show + a,
+  ul {
+    display: none;
+  }
+  [id^="btn"]:checked + ul {
+    display: block;
+  }
+}
+@media all and (max-width: 480px) {
+  nav {
+    overflow-x: hidden;
+    padding: 25px 0;
+  }
+  nav .logo h4 {
+    font-size: 25px;
+  }
+  .icon {
+    top: 10px;
+  }
+}
+footer {
+  background-color: #31135c;
+  display: flex;
+  color: white;
+  position: relative;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+footer span {
+  margin: 10px 0;
+  opacity: 0.6;
+}
+.social-links {
+  flex-direction: column;
+  display: flex;
+}
+.social-links i {
+  font-size: 35px;
+  transition-property: color;
+  transition-duration: 0.5s;
+  margin: 10px 10px;
+  color: #f5f5f5;
+}
+
+.social-links a i:hover {
+  color: #46b5d1;
+}
+.copyright {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+footer span {
+}
+/* End footer */
