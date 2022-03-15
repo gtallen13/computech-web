@@ -1,5 +1,7 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-nextjs-toast'
+
 const Paypal = () => {
     const createOrder = async () => {
         try{
@@ -17,17 +19,34 @@ const Paypal = () => {
             console.log(e);
         }
     }
+    const onClickNotify = (type)=>{
+        switch(type){
+            case "success":
+                toast.notify("Muchas gracias por su compra", {
+                    type:"success",
+                    title:"Pago exitoso"
+                })
+                break;
+            case "error":
+                toast.notify("La compra fue cancelada", {
+                    type:"error",
+                    title:"Error en la compra"
+                })
+                break;
+        }
+    }
     return (
         <>
-            <h1>hi</h1>
+            <ToastContainer align={"right"} position={"bottom"}/>
             <PayPalScriptProvider options={{ "client-id": "AYaC88wXkHCiNiBbd1AFXniZjkEeal1BQDC62bHIf1xOaVqwPGjDOL45B2zNrOTJ2yunaJDSUDGcghDF"}}>
                 <PayPalButtons 
                 style={{ layout: "vertical" }}
                 createOrder={()=>createOrder()}
-                onCancel={data => console.log("Compra Cancelada")}
+                onCancel={data => onClickNotify("error")}
                 onApprove={(data,actions)=>{
                     console.log(data);
                     actions.order.capture()
+                    onClickNotify("success")
                 }}
                 />
             </PayPalScriptProvider>
