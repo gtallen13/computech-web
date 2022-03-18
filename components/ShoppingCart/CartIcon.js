@@ -3,8 +3,8 @@ import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect } from 'react';
 import { useCart } from 'react-use-cart';
-import styles from '../styles/Cart.module.css'
-const Cart = () => {
+import styles from '../../styles/Cart.module.css'
+const CartIcon = () => {
     const [amountItems, setAmountItems] = useState(0)
     const {totalItems} = useCart()
     useEffect(()=>{
@@ -22,4 +22,4 @@ const Cart = () => {
     );
 }
 
-export default Cart;
+export default CartIcon;

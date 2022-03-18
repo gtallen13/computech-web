@@ -1,8 +1,8 @@
 
 import axios from 'axios'
-export const createOrder = async () => {
+export const createOrder = async (cartTotal) => {
     try{
-        const payload = {value:"100.00", currency_code:"USD"}
+        const payload = {value:cartTotal, currency_code:"USD"}
         const res = await axios({
             url:"http://localhost:3000/api/payment",
             data:payload,
