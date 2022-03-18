@@ -1,8 +1,10 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-nextjs-toast'
-
+import { useContext,useState } from "react";
+import { CartContext } from "../components/Cart";
 const Paypal = () => {
+    const amountHandler = useContext(CartContext)
     const createOrder = async () => {
         try{
             const payload = {value:"100.00", currency_code:"USD"}
@@ -50,6 +52,7 @@ const Paypal = () => {
                 }}
                 />
             </PayPalScriptProvider>
+            <button value={"Add"} onClick={()=> amountHandler()}/>
         </>
     );
 }
