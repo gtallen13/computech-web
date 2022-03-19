@@ -1,0 +1,49 @@
+.Producto {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
+  }
+  .lisProducto{
+    padding: 20px;
+    font-size: 25px;
+    background-color: #33135c;
+    color: #fff;
+    border-radius: 10px;
+    opacity: 0.85;
+    transition: all 0.5s;
+  }
+  .productotext{
+    font-size: 12px;
+    color: #fff;
+    border-radius: 10px;
+  }
+  .btnProducto{
+    padding: 15px;
+    font-size: 25px;
+    background-color: #c0b6ce;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  .btnContainerProducto {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+  .ImagenContenedor {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .Contenedor {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 80%;
+      min-height: 70vh;
+  }

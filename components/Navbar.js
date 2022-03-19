@@ -20,6 +20,7 @@ const Navbar = () => {
                 <ul>
                     <li><Link href="/"><a>Inicio</a></Link></li>
                     <li><Link href="/Tours/"><a>Tienda</a></Link></li>
+                    <li><Link href="/producto/"><a>Producto</a></Link></li>
                     <li><Link href="/Tours/"><a>Iniciar Sesion</a></Link></li>
                 </ul>
             </nav>
