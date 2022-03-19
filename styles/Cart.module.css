@@ -49,6 +49,9 @@
   width: 100%;
   margin: 0 auto;
 }
+.cartTable tr:nth-child(even) {
+  background-color: #c5c6c5;
+}
 .cartTable td {
   padding: 10px;
   text-align: center;
