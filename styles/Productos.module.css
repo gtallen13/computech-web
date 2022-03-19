@@ -1,10 +1,9 @@
 .Producto {
     display: flex;
-    width: 100%;
     position: relative;
-    height: 30vh;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
   }
   .lisProducto{
     padding: 20px;
@@ -46,4 +45,6 @@
       grid-template-columns: 1fr 1fr 1fr;
       width: 80%;
       min-height: 70vh;
+      margin: 0 auto;
+      padding-bottom: 30px;
   }
