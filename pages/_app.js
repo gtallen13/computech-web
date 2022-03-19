@@ -5,7 +5,9 @@ function MyApp({ Component, pageProps }) {
   return(
     <CartProvider>
       <Layout>
-        <Component {...pageProps} /> 
+        <div className='main-content'>
+          <Component {...pageProps} /> 
+        </div>
       </Layout>
     </CartProvider>
     ) 
