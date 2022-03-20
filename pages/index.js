@@ -8,8 +8,21 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { Pagination,Navigation } from 'swiper'
 import InfoSlide from '../components/InfoSlide'
+import useSWR from 'swr'
+import fetch from 'isomorphic-unfetch'
+import cookie from 'js-cookie'
 
 export default function Home() {
+  const {data, revalidate} = useSWR('/api/me', async function(args) {
+    const res = await fetch(args);
+    return res.json();
+  });
+  if (!data) return <h1>Loading...</h1>;
+  let loggedIn = false;
+  if (data.email) {
+    loggedIn = true;
+  }
+
   return (
     <div>
       <Head>
