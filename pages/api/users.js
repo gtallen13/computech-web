@@ -4,11 +4,11 @@ const assert = require("assert");
 const bcrypt = require("bcrypt");
 const v4 = require("uuid").v4;
 const jwt = require("jsonwebtoken");
-const jwtSecret = 'SUPERSECRETE20220';
+const jwtSecret = 'SUPERSECRETE20221';
 
 const saltRounds = 10;
-const url = "mongodb+srv://appuser:admin@seminario.hxg78.mongodb.net/MyDB?retryWrites=true&w=majority";
-const dbName = "MyDB";
+const url = "mongodb+srv://compuTechUser:to2RyjYN9CDkcmyq@cluster0.r1bha.mongodb.net/compuTech?retryWrites=true&w=majority";
+const dbName = "compuTech";
 
 const client = new MongoClient(url, {
   useNewUrlParser: true,

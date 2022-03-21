@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = "SUPERSECRETE20220";
+const jwtSecret = "SUPERSECRETE20221";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (req, res) => {
