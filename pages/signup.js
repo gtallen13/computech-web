@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
+import Link from "next/link";
 import styles from "../styles/Login-Signup.module.css";
 
 const Signup = () => {
@@ -80,6 +81,7 @@ const Signup = () => {
         </div>
       </div>
       {signupError && <p style={{ color: "red" }}>{signupError}</p>}
+      <Link href="/index"><a></a></Link>
     </form>
   );
 };
