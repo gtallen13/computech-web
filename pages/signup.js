@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
+import styles from "../styles/Login-Signup.module.css";
 
 const Signup = () => {
   const [signupError, setSignupError] = useState("");
@@ -35,44 +36,49 @@ const Signup = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <p>Sign Up</p>
-      <label for="username">
-        username
-        <input
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          name="username"
-          type="username"
-        />
-      </label>
-
-      <br />
-
-      <label htmlFor="email">
-        email
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          name="email"
-          type="email"
-        />
-      </label>
-
-      <br />
-
-      <label for="password">
-        password
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          name="password"
-          type="password"
-        />
-      </label>
-
-      <br />
-
-      <input type="submit" value="Submit" />
+      <div className={styles.container}>
+        <div className={styles.window}>
+        <div className={styles.boldline}></div>
+          <div className={styles.overlay}></div>
+          <div className={styles.content}>
+            <div className={styles.welcome}>Registrar</div>
+            <div className={styles.inputfields}>
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                name="username"
+                type="username"
+                placeholder="Usuario"
+                className={styles.inputline}
+              ></input>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                type="email"
+                placeholder="Correo"
+                className={styles.inputline}
+              ></input>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                type="password"
+                placeholder="Contraseña"
+                className={styles.inputline}
+              ></input>
+            </div>
+            <div className={styles.spacing}>
+              Ya tienes cuenta? <span className={styles.highlight}>Iniciar Sesión</span>
+            </div>
+            <div>
+              <button type="submit" value="submit" className={styles.ghostround}>
+                Registrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {signupError && <p style={{ color: "red" }}>{signupError}</p>}
     </form>
   );
