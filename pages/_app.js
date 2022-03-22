@@ -1,10 +1,15 @@
 import '../styles/globals.css'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
+import {CartProvider} from 'react-use-cart'
 function MyApp({ Component, pageProps }) {
   return(
-    <Layout>
-      <Component {...pageProps} /> 
-    </Layout>
+    <CartProvider>
+      <Layout>
+        <div className='main-content'>
+          <Component {...pageProps} /> 
+        </div>
+      </Layout>
+    </CartProvider>
     ) 
     
 }
