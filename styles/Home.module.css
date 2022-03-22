@@ -51,3 +51,12 @@
 .btnComprar:hover {
   opacity: 1;
 }
+.aboutContactSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin: 0 auto;
+}
+.aboutContactSection h3 {
+  font-size: 30px;
+}

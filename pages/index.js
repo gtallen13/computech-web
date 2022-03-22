@@ -47,6 +47,21 @@ export default function Home() {
           <a className={styles.btnComprar}>Comprar Ahora</a>
         </Link>
       </div>
+
+      {/* About y contacto */}
+      <section className={styles.aboutContactSection}>
+        <div className={styles.about}>
+          <h3>Acerca de Nosotros</h3>
+          <p>
+            Somos una empresa hondureña ubicados en La Ceiba, Atlantida que tiene como objetivo brindar el mejor servicio y los mejores productos de computacion a nuestros clientes. Contamos con los mejores productos a un precio muy competitivo para que puedas armar tu PC o para que puedas incrementar la potencia de tu PC. No esperes mas y ponte a comprar con CompuTech!
+          </p>
+        </div>
+        <div styles={styles.contacto}>
+          <h3>Contacto</h3>
+          <p>Correo: infocomputech@computech.com</p>
+          <p>Telefono: 9920-8910</p>
+        </div>
+      </section>
     </div>
 
   )
