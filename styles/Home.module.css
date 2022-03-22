@@ -50,3 +50,32 @@
 .btnComprar:hover {
   opacity: 1;
 }
+.aboutContactSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin: 0 auto;
+  gap: 30px;
+}
+.aboutContactSection h3 {
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+}
+.aboutContactSection p {
+  font-size: 18px;
+}
+.galleryContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: 50vh;
+  opacity: 0.9;
+}
+.galleryImage {
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+.galleryImage:hover {
+  opacity: 1;
+}
