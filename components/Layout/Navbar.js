@@ -18,8 +18,12 @@ const Navbar = () => {
                 <input id='btn-Menu' type="checkbox"/>
                 <ul>
                     <li><Link href="/"><a>Inicio</a></Link></li>
+<<<<<<< HEAD:components/Layout/Navbar.js
                     <li><Link href="/Tours/"><a>Tienda</a></Link></li>
                     <li><Link href="/producto/"><a>Producto</a></Link></li>
+=======
+                    <li><Link href="/Categorias/"><a>Categorias</a></Link></li>
+>>>>>>> c11ada9d834b0bbc5ff37d98159e1938741e93a7:components/Navbar.js
                     <li><Link href="/Tours/"><a>Iniciar Sesion</a></Link></li>
                 </ul>
             </nav>
