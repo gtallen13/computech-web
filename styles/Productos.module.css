@@ -26,6 +26,7 @@
   border-radius: 10px;
   opacity: 0.8;
   transition: all 0.5s;
+  border: none;
 }
 .btnProducto:hover {
   opacity: 1;

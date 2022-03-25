@@ -28,7 +28,7 @@ const Navbar = () => {
         <ul>
             <li><Link href="/"><a>Inicio</a></Link></li>
             <li><Link href="/Tienda/Categorias"><a>Tienda</a></Link></li>
-            {!user && <li><Link href="/login"><a>Iniciar Sesion</a></Link></li>}
+            {!user && <li><Link href="/Auth/Login"><a>Iniciar Sesion</a></Link></li>}
             
             {user && 
             <>

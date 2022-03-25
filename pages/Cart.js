@@ -41,17 +41,17 @@ const Cart = () => {
                     <table className={styles.cartTable}>
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
                             </tr>
                         </thead>
                         <tbody>
                             {items.map(item=>(
                             <tr key={item.id}>
                                 <td>
-                                    <Image src={item.imagen} height={90} width={100} alt="product pic"/>
+                                    <Image src={item.image} height={90} width={100} alt={`imagen de ${item.image}`}/>
                                 </td>
                                 <td>
                                     <span>{item.name}</span>

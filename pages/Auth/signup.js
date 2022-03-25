@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
 import Link from "next/link";
-import styles from "../styles/Login-Signup.module.css";
+import styles from "../../styles/Login-Signup.module.css";
 
 const Signup = () => {
   const [signupError, setSignupError] = useState("");
@@ -70,7 +70,7 @@ const Signup = () => {
               ></input>
             </div>
             <div className={styles.spacing}>
-              Ya tienes cuenta? <Link href="/login"><a><span className={styles.highlight}>Iniciar Sesión</span></a></Link>
+              Ya tienes cuenta? <Link href="/Auth/Login"><a><span className={styles.highlight}>Iniciar Sesión</span></a></Link>
             </div>
             <div>
               <button type="submit" value="submit" className={styles.ghostround}>
