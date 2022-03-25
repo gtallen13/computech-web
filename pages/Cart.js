@@ -3,9 +3,8 @@ import styles from "../styles/Cart.module.css"
 import {ToastContainer,toast} from 'react-nextjs-toast'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { createOrder } from "../utils/PaypalCheckout";
-import EmptyCartScreen from "../components/ShoppingCart/EmptyCartScreen";
+import EmptyScreen from "../components/EmptyScreen";
 import Image from "next/image";
-import { useState,useEffect } from "react";
 const Cart = () => {
     const {
         items,
@@ -36,7 +35,7 @@ const Cart = () => {
     }
     return (
         <>
-            {isEmpty ? <EmptyCartScreen/>:
+            {isEmpty ? <EmptyScreen msg="Tu carrito esta vacio"/>:
                 <div className={styles.cartPage}>
                     <ToastContainer align={"right"} position={"top"}/>
                     <table className={styles.cartTable}>

@@ -70,7 +70,7 @@ const Signup = () => {
               ></input>
             </div>
             <div className={styles.spacing}>
-              Ya tienes cuenta? <span className={styles.highlight}>Iniciar Sesión</span>
+              Ya tienes cuenta? <Link href="/login"><a><span className={styles.highlight}>Iniciar Sesión</span></a></Link>
             </div>
             <div>
               <button type="submit" value="submit" className={styles.ghostround}>

@@ -45,10 +45,12 @@
   background-color: #33135c;
   color: #fff;
   border-radius: 10px;
+  opacity: 0.8;
   transition: all 0.5s;
 }
 .btnComprar:hover {
   opacity: 1;
+  color: #fff;
 }
 .aboutContactSection {
   display: grid;

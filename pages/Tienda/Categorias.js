@@ -1,12 +1,9 @@
-import { skills, experiences, projects } from "../profile";
-
+import { projects } from "../../profile";
+import Image from 'next/image'
+import Link from 'next/link'
 const Categorias = () => (
-  
-  
-
-  
 <>
-<section className="row">
+    <section className="row">
       <div className="col-md-8 py-2">
       </div>
     </section>
@@ -18,21 +15,23 @@ const Categorias = () => (
               <div className="col-md-12 my-2">
                 <h1 className="titulocategoria">Categorias</h1>
               </div>
-              {projects.map(({ name, description, image }, index) => (
+              {projects.map(({ name, description, image, categoria }, index) => (
                 <div className="col-md-4 p-2" key={index}>
                   <div className="card h-100">
                     <div className="overflow">
-                      <img
+                      <Image
                         src={`/${image}`}
                         alt=""
                         className="card-img-top"
+                        width={500}
+                        height={300}
                       />
                     </div>
                     <div className="card-body">
                       <h3>{name}</h3>
                       <p>{description}</p>
-                     
-                      <a href="#!">Comprar</a>
+                      <p>{categoria}</p>
+                      <Link href={`/Tienda/Productos?categoria=${categoria}`}><a>Comprar</a></Link>
                     </div>
                   </div>
                 </div>

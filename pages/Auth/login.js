@@ -3,11 +3,13 @@ import Router from "next/router";
 import cookie from "js-cookie";
 import Link from "next/link";
 import styles from "../styles/Login-Signup.module.css";
+import { useContext } from "react";
+import { UserContext } from "../../utils/UserContext";
 const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const {setUser}= useContext(UserContext)
   function handleSubmit(e) {
     e.preventDefault();
     //call api
@@ -31,6 +33,7 @@ const Login = () => {
         if (data && data.token) {
           //set cookie
           // cookie.set("token", data.token, { expires: 2 });
+          setUser(data.user)
           Router.push("/");
         }
       });
@@ -62,7 +65,7 @@ const Login = () => {
               ></input>
             </div>
             <div className={styles.spacing}>
-              Aún no tienes cuenta? <span className={styles.highlight}>Crear cuenta</span>
+              Aún no tienes cuenta? <Link href="/signup"><a><span className={styles.highlight}>Crear cuenta</span></a></Link>
             </div>
             <div>
               <button type="submit" value="submit" className={styles.ghostround}>
