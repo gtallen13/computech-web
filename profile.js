@@ -22,10 +22,10 @@ export const projects = [
     categoria:"audio"
   },
   {
-    name: "Cables",
+    name: "Monitores",
     description:
-      "Una gran variedad y tipos de cableado para tu pc",
-    image: "computer-g1b39bdaca_640.jpg",
+      "Variedad de monitores que se adaptan a todas tus necesidades",
+    image: "monitorTUF.jpg",
     categoria:"cables"
   },
   {
