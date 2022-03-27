@@ -10,7 +10,8 @@ const urlDomains = [
   "teamtecno.com.ar",
   "www.beahero.gg",
   "forgeon.es",
-  "tecladomecanico.top"
+  "tecladomecanico.top",
+  "m.media-amazon.com"
 ]
 
 module.exports = {

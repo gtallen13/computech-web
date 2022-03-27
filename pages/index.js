@@ -9,8 +9,8 @@ import 'swiper/css/navigation'
 import { Pagination,Navigation } from 'swiper'
 import InfoSlide from '../components/InfoSlide'
 import GalleryView from '../components/Gallery/GalleryView'
-
-export default function Home() {
+import {connectToDatabase} from '../utils/mongodb'
+export default function Home({productos}) {
   return (
     <div>
       <Head>
@@ -29,18 +29,12 @@ export default function Home() {
         modules={[Pagination,Navigation]}
         className={styles.homeSlider}
         >
-          <SwiperSlide>
-            <InfoSlide image={"/mouse.jpg"} title="Razor Viper Mini" category="Mouse"/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <InfoSlide image={"/mouse.jpg"} title="Razor Viper Mini 1" category="Mouse"/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <InfoSlide image={"/mouse.jpg"} title="Razor Viper Mini 2" category="Mouse"/>
-          </SwiperSlide>
-          <SwiperSlide>
-            <InfoSlide image={"/mouse.jpg"} title="Razor Viper Mini 3" category="Mouse"/>
-          </SwiperSlide>
+          {productos.map((item,key)=>(
+            <SwiperSlide key={key}>
+              <InfoSlide image={item.imagen} title={item.nombre} category={item.categoria}/>
+            </SwiperSlide>
+
+          ))}
         </Swiper>
       </div>
       <div className={styles.btnContainer}>
@@ -72,4 +66,30 @@ export default function Home() {
     </div>
 
   )
+}
+
+export async function getStaticProps(context){
+  const {db} = await connectToDatabase();
+
+  const data = await db
+  .collection("productos")
+  .find().limit(4)
+  .toArray()
+
+  const productos = data.map(producto=>{
+    const id = JSON.parse(JSON.stringify(producto._id));
+    return{
+      id:id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      imagen: producto.imagen,
+      categoria:producto.categoria
+    }
+  })
+
+  return {
+    props: {
+      productos
+    }
+  }
 }
