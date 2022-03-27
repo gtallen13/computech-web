@@ -1,4 +1,4 @@
-import 'bootswatch/dist/pulse/bootstrap.min.css'
+import 'bootswatch/dist/lumen/bootstrap.min.css'
 import 'animate.css/animate.min.css'
 import '../styles/globals.css'
 import Layout from '../components/Layout/Layout'
