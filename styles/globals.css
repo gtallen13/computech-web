@@ -262,12 +262,33 @@ footer span {
   top: 20%;
 }
 /* ---------- */
-.texto{
-  color: black;
-  
-  }
-  
-  .button{
-    color: green;
-  }
-  
+.texto {
+  color: black !important;
+}
+
+.button {
+  background-color: #25d366;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  opacity: 0.9;
+}
+.button:hover {
+  opacity: 1;
+  background-color: #075e54;
+  color: #fff;
+}
+
+.btn-agg-carrito {
+  padding: 10px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #31135c;
+  opacity: 0.9;
+  color: #f5f5f5;
+  transition: all 0.5s;
+}
+.btn-agg-carrito:hover {
+  opacity: 1;
+}
