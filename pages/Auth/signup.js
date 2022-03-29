@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 import styles from "../../styles/Login-Signup.module.css";
+import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
   const [signupError, setSignupError] = useState("");
@@ -10,8 +12,39 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const handleError = (errors) => {}
+
+{/* <script>
+  function load(){
+    window.location.href = "/Auth/login"
+  }
+</script> */}
+  const registerOptions = {
+    username: {
+      required: "Ingrese un nombre de usuario",
+      minLength: {
+        value: 6,
+        message: "El nombre de usuario debe tener al menos 6 carácteres"
+      }
+    },
+    email: {
+      required: "Ingrese un correo",
+      pattern: {
+        value: /\S+@\S+\.\S+/,
+        message: "Ingrese un correo valido"
+      }
+    },
+    password: {
+      required: "Ingrese una contraseña",
+      minLength: {
+        value: 8,
+        message: "La contraseña debe tener al menos 8 carácteres"
+      }
+    }
+  }
+
+  function handleRegistration() {
     fetch("/api/users", {
       method: "POST",
       headers: {
@@ -36,7 +69,7 @@ const Signup = () => {
       });
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(handleRegistration, handleError)}>
       <div className={styles.container}>
         <div className={styles.window}>
         <div className={styles.boldline}></div>
@@ -45,35 +78,38 @@ const Signup = () => {
             <div className={styles.welcome}>Registrar</div>
             <div className={styles.inputfields}>
               <input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
                 name="username"
                 type="username"
+                {...register('username', registerOptions.username)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Usuario"
                 className={styles.inputline}
-              ></input>
+              />{errors?.username && errors.username.message}
               <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 type="email"
+                {...register('email', registerOptions.email)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Correo"
                 className={styles.inputline}
-              ></input>
+              />{errors?.email && errors.email.message}
               <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 type="password"
+                {...register('password', registerOptions.password)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Contraseña"
                 className={styles.inputline}
-              ></input>
+              />{errors?.password && errors.password.message}
             </div>
             <div className={styles.spacing}>
-              Ya tienes cuenta? <Link href="/Auth/Login"><a><span className={styles.highlight}>Iniciar Sesión</span></a></Link>
+              Ya tienes cuenta? <Link href="/Auth/login"><a><span className={styles.highlight}>Iniciar Sesión</span></a></Link>
             </div>
             <div>
-              <button type="submit" value="submit" className={styles.ghostround}>
+              <button type="submit"  value="submit" className={styles.ghostround}>
                 Registrar
               </button>
             </div>
@@ -81,7 +117,7 @@ const Signup = () => {
         </div>
       </div>
       {signupError && <p style={{ color: "red" }}>{signupError}</p>}
-      <Link href="/index"><a></a></Link>
+      <Link href="/Auth/login"><a></a></Link>
     </form>
   );
 };

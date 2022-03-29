@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
 import Link from "next/link";
+
 import styles from "../../styles/Login-Signup.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
@@ -65,7 +66,7 @@ const Login = () => {
               ></input>
             </div>
             <div className={styles.spacing}>
-              Aún no tienes cuenta? <Link href="/Auth/Signup"><a><span className={styles.highlight}>Crear cuenta</span></a></Link>
+              Aún no tienes cuenta? <Link href="/Auth/signup"><a><span className={styles.highlight}>Crear cuenta</span></a></Link>
             </div>
             <div>
               <button type="submit" value="submit" className={styles.ghostround}>

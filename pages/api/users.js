@@ -43,6 +43,7 @@ export default (req, res) => {
   if (req.method === "POST") {
     // signup
     try {
+      assert.notEqual(null, req.body.username, "Username required");
       assert.notEqual(null, req.body.email, "Email required");
       assert.notEqual(null, req.body.password, "Password required");
     } catch (bodyError) {
@@ -66,16 +67,17 @@ export default (req, res) => {
         if (!user) {
           // proceed to Create
           createUser(db, username, email, password, function (creationResult) {
-            if (creationResult.ops.length === 1) {
+            if (creationResult.length === null || creationResult.length === "null" || creationResult.length < 1) {
               const user = creationResult.ops[0];
               const token = jwt.sign(
-                { userId: user.userId, email: user.email },
+                { userId: user.userId, username: user.username, email: user.email },
                 jwtSecret,
                 {
                   expiresIn: 3000, //50 minutes
                 }
               );
               res.status(200).json({ token });
+              res.redirect('/Auth/login')
               return;
             }
           });
