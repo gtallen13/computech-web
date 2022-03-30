@@ -44,7 +44,7 @@ const Signup = () => {
     }
   }
 
-  function handleRegistration() {
+  function handleRegistration(e) {
     fetch("/api/users", {
       method: "POST",
       headers: {
@@ -58,15 +58,17 @@ const Signup = () => {
     })
       .then((r) => r.json())
       .then((data) => {
-        if (data && data.error) {
-          setSignupError(data.message);
+        if (data.creation){
+          Router.push("login")
+
         }
-        if (data && data.token) {
-          //set cookie
-          cookie.set("token", data.token, { expires: 2 });
-          Router.push("/");
-        }
-      });
+      })
+      .catch((e)=>{
+        console.log(e);
+        // setSignupError(e.message);
+      }).finally(()=>{
+        console.log("hi")
+      })
   }
   return (
     <form onSubmit={handleSubmit(handleRegistration, handleError)}>

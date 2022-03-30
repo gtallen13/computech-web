@@ -68,18 +68,11 @@ export default (req, res) => {
           // proceed to Create
           createUser(db, username, email, password, function (creationResult) {
             if (creationResult.length === null || creationResult.length === "null" || creationResult.length < 1) {
-              const user = creationResult.ops[0];
-              const token = jwt.sign(
-                { userId: user.userId, username: user.username, email: user.email },
-                jwtSecret,
-                {
-                  expiresIn: 3000, //50 minutes
-                }
-              );
-              res.status(200).json({ token });
-              res.redirect('/Auth/login')
+              res.status(200).json({creation:true, message:"User created"});
+              // res.redirect('/Auth/login')
               return;
             }
+            res.status(200).json({creation:true, message:"User created"});
           });
         } else {
           // User exists
