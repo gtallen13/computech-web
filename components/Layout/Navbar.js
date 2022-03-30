@@ -1,17 +1,13 @@
 import Head from "next/head";
-import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faSignOut } from "@fortawesome/free-solid-svg-icons";
-import useSWR from "swr";
-import fetch from "isomorphic-unfetch";
-import cookie from "js-cookie";
 import { useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
-import styles from '../../styles/Login-Signup.module.css'
-
+import {useCart} from 'react-use-cart'
 const Navbar = () => {
   const {user, setUser}= useContext(UserContext);
+  const {emptyCart} = useCart()
     return (
     <>
       <Head>
@@ -38,7 +34,8 @@ const Navbar = () => {
                   <a
                     onClick={() => {
                     cookie.remove("token");
-                    setUser(null)
+                    setUser(null);
+                    emptyCart()
                     revalidate();
                     }}
                   >

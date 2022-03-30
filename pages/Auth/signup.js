@@ -4,7 +4,6 @@ import cookie from "js-cookie";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import styles from "../../styles/Login-Signup.module.css";
-import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
   const [signupError, setSignupError] = useState("");
@@ -15,11 +14,7 @@ const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const handleError = (errors) => {}
 
-{/* <script>
-  function load(){
-    window.location.href = "/Auth/login"
-  }
-</script> */}
+
   const registerOptions = {
     username: {
       required: "Ingrese un nombre de usuario",
@@ -119,7 +114,6 @@ const Signup = () => {
         </div>
       </div>
       {signupError && <p style={{ color: "red" }}>{signupError}</p>}
-      <Link href="/Auth/login"><a></a></Link>
     </form>
   );
 };
