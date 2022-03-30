@@ -77,7 +77,6 @@ export default (req, res) => {
                 }
               );
               res.status(200).json({ token });
-              res.redirect('/Auth/login')
               return;
             }
           });

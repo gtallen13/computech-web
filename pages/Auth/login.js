@@ -2,17 +2,39 @@ import React, { useState } from "react";
 import Router from "next/router";
 import cookie from "js-cookie";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 import styles from "../../styles/Login-Signup.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
+
 const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setUser}= useContext(UserContext)
-  function handleSubmit(e) {
-    e.preventDefault();
+
+  const { register, handleSubmit, formState: {errors}} = useForm();
+  const handleError = (errors) => {}
+
+  const loginOptions = {
+    email: {
+      required: "Ingrese un correo",
+      pattern: {
+        value: /\S+@\S+\.\S+/,
+        message: "Ingrese un correo valido"
+      }
+    },
+    password: {
+      required: "Ingrese una contraseña",
+      minLength: {
+        value: 8,
+        message: "La contraseña debe tener al menos 8 carácteres"
+      }
+    }
+  }
+
+  function handleLogin(e) {
     //call api
     fetch("/api/auth", {
       method: "POST",
@@ -39,8 +61,9 @@ const Login = () => {
         }
       });
   }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(handleLogin, handleError)}>
       <div className={styles.container}>
         <div className={styles.window}>
         <div className={styles.boldline}></div>
@@ -49,21 +72,23 @@ const Login = () => {
             <div className={styles.welcome}>Iniciar Sesión</div>
             <div className={styles.inputfields}>
               <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 name="email"
                 type="email"
+                {...register('email', loginOptions.email)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Correo"
                 className={styles.inputline}
-              ></input>
+              />{errors?.email && errors.email.message}
               <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 type="password"
+                {...register('password', loginOptions.password)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Contraseña"
                 className={styles.inputline}
-              ></input>
+              />{errors?.password && errors.password.message}
             </div>
             <div className={styles.spacing}>
               Aún no tienes cuenta? <Link href="/Auth/signup"><a><span className={styles.highlight}>Crear cuenta</span></a></Link>
