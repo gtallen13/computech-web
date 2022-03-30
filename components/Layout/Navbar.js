@@ -4,10 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
-import {useCart} from 'react-use-cart'
 const Navbar = () => {
   const {user, setUser}= useContext(UserContext);
-  const {emptyCart} = useCart()
     return (
     <>
       <Head>
@@ -33,10 +31,7 @@ const Navbar = () => {
                   <Link href="/">
                   <a
                     onClick={() => {
-                    cookie.remove("token");
                     setUser(null);
-                    emptyCart()
-                    revalidate();
                     }}
                   >
                     <FontAwesomeIcon icon={faSignOut} />  

@@ -38,9 +38,30 @@ export const projects = [
   {
     name: "Arma tu PC",
     description:
-      "Tienes la oportunidad de escoger la piezas que busques y armar tu PC",
+      "Compra una PC gamer armada y equipada para darte experiencias inolvidables",
     image: "laptop-gb48fc3b01_640.jpg",
-    categoria: "Pcbuild"
+    categoria: "PC Escritorio"
+  },
+  {
+    name: "Sillas",
+    description:
+      "Las mejores sillas gamer para que jueges comodamente",
+    image: "silla-gamer.jpg",
+    categoria: "Sillas"
+  },
+  {
+    name: "Mesas",
+    description:
+      "Las mejores sillas gamer para que jueges comodamente",
+    image: "mesa-gamer.jpg",
+    categoria: "Mesas"
+  },
+  {
+    name: "Webcam",
+    description:
+      "Tienes la oportunidad de escoger la piezas que busques y armar tu PC",
+    image: "webcam.jpg",
+    categoria: "WebCam"
   },
 ];
 

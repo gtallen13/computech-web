@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Router from "next/router";
-import cookie from "js-cookie";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-
+import {useCart} from 'react-use-cart'
 import styles from "../../styles/Login-Signup.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../utils/UserContext";
@@ -13,7 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setUser}= useContext(UserContext)
-
+  const {emptyCart} = useCart()
   const { register, handleSubmit, formState: {errors}} = useForm();
   const handleError = (errors) => {}
 
@@ -57,6 +56,7 @@ const Login = () => {
           //set cookie
           // cookie.set("token", data.token, { expires: 2 });
           setUser(data.user)
+          emptyCart();
           Router.push("/");
         }
       });

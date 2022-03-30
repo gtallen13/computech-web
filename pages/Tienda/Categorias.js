@@ -30,7 +30,6 @@ const Categorias = () => (
                     <div className="card-body">
                       <h3>{name}</h3>
                       <p>{description}</p>
-                      <p>{categoria}</p>
                       <Link href={`/Tienda/Productos?categoria=${categoria}`}><a>Comprar</a></Link>
                     </div>
                   </div>
