@@ -5,6 +5,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { createOrder } from "../utils/PaypalCheckout";
 import EmptyScreen from "../components/EmptyScreen";
 import Image from "next/image";
+import { useEffect } from "react";
 const Cart = () => {
     const {
         items,
@@ -13,15 +14,23 @@ const Cart = () => {
         cartTotal,
         emptyCart
     } = useCart()
-    
+    //notify user
+
+    useEffect(()=>{
+        if(isEmpty){
+            setTimeout(()=>{
+                emptyCart()
+            },3000)
+        }
+    },[])
     const onClickNotify = (type)=>{
         switch(type){
             case "success":
-                emptyCart()
                 toast.notify("Muchas gracias por su compra", {
                     type:"success",
                     title:"Pago exitoso"
                 })
+                
                 break;
             case "error":
                 console.log("cancelled");

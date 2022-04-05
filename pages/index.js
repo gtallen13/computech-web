@@ -38,7 +38,7 @@ export default function Home({productos}) {
         </Swiper>
       </div>
       <div className={styles.btnContainer}>
-        <Link href="/categorias">
+        <Link href="/Tienda/Categorias">
           <a className={styles.btnComprar}>Comprar Ahora</a>
         </Link>
       </div>
